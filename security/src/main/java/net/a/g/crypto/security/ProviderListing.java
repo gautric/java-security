@@ -8,12 +8,17 @@ import java.util.Collections;
 import java.util.List;
 import java.util.logging.Logger;
 
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+
 public class ProviderListing {
 
 	public static Logger LOG = Logger.getLogger(ProviderListing.class
 			.getCanonicalName());
 
 	public static void main(String[] args) {
+		
+		
+		Security.addProvider(new BouncyCastleProvider());
 
 		for (Provider provider : Security.getProviders()) {
 			LOG.info(">> "+provider.getName());
